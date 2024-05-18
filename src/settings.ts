@@ -28,7 +28,7 @@ export class HexoPublisherPluginSettingTab extends PluginSettingTab {
 
         containerEl.empty();
 
-        containerEl.createEl('h1', { text: 'Obsidian Hexo Publilsher - Settings' });
+        containerEl.createEl('h1', { text: 'Hexo Publilsher - Settings' });
 
         containerEl.createEl('h2', { text: 'Hexo Site Settings' });
         new Setting(containerEl)
