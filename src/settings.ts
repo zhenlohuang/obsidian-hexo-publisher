@@ -4,7 +4,8 @@ import { HexoPublisher } from './plugin';
 
 export const DEFAULT_SETTINGS: HexoPublisherPluginSettings = {
     enabledLocalRepo: false,
-    gitRepo: ''
+    gitRepo: '',
+    hexoSourceDir: 'source'
 }
 
 
@@ -21,12 +22,26 @@ export class HexoPublisherPluginSettingTab extends PluginSettingTab {
 
         containerEl.empty();
 
+        containerEl.createEl('h1', { text: 'Obsidian Hexo Publilsher - Settings' });
+
+        containerEl.createEl('h2', { text: 'Hexo Site Settings' });
         new Setting(containerEl)
             .setName('Git Repo')
-            .setDesc('git repo path for hexo blog.')
+            .setDesc('git repo path for hexo site.')
             .addText(text => text
                 .setPlaceholder('Enter your git repo')
                 .setValue(this.plugin.settings.gitRepo)
+                .onChange(async (value) => {
+                    this.plugin.settings.gitRepo = value;
+                    await this.plugin.saveSettings();
+                }));
+
+        new Setting(containerEl)
+            .setName('Source Dir')
+            .setDesc('Source dir for hexo site.')
+            .addText(text => text
+                .setPlaceholder('source')
+                .setValue(this.plugin.settings.hexoSourceDir)
                 .onChange(async (value) => {
                     this.plugin.settings.gitRepo = value;
                     await this.plugin.saveSettings();
