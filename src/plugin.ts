@@ -2,6 +2,7 @@
 import { Plugin } from 'obsidian';
 import { DEFAULT_SETTINGS, HexoPublisherPluginSettingTab } from './settings';
 import { syncCommand, publishPosts } from './commands';
+import { HexoPublisherPluginSettings } from './settings';
 
 export class HexoPublisher extends Plugin {
     settings: HexoPublisherPluginSettings;

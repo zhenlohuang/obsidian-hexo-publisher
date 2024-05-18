@@ -2,6 +2,12 @@
 import { App, PluginSettingTab, Setting } from 'obsidian';
 import { HexoPublisher } from './plugin';
 
+export interface HexoPublisherPluginSettings {
+    enabledLocalRepo: boolean;
+    gitRepo: string;
+    hexoSourceDir: string;
+}
+
 export const DEFAULT_SETTINGS: HexoPublisherPluginSettings = {
     enabledLocalRepo: false,
     gitRepo: '',

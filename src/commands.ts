@@ -2,6 +2,7 @@ import { App, Notice, TFile } from 'obsidian';
 import { Hexo } from './hexo'
 import { ObsidianHelper } from './helpers'
 import { Utils } from './utils';
+import { HexoPublisherPluginSettings } from './settings';
 
 export function syncCommand(app: App, settings: HexoPublisherPluginSettings) {
     return {
