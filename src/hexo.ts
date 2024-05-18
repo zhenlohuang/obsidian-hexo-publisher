@@ -51,12 +51,8 @@ export class Hexo {
 
         try {
             await fs.promises.mkdir(path.dirname(postPath), { recursive: true });
-            if (!fs.existsSync(postPath)) {
-                await fs.promises.writeFile(postPath, content, 'utf8');
-                console.log(`Post written to: ${postPath}`);
-            } else {
-                console.log(`Post already exists: ${postPath}`);
-            }
+            await fs.promises.writeFile(postPath, content, 'utf8');
+            console.log(`Post written to: ${postPath}`);
         } catch (error) {
             console.error(`Error writing post: ${error}`);
         }
@@ -67,12 +63,8 @@ export class Hexo {
 
         try {
             await fs.promises.mkdir(path.dirname(imagePath), { recursive: true });
-            if (!fs.existsSync(imagePath)) {
-                await fs.promises.writeFile(imagePath, Buffer.from(content));
-                console.log(`Image written to: ${imagePath}`);
-            } else {
-                console.log(`Image already exists: ${imagePath}`);
-            }
+            await fs.promises.writeFile(imagePath, Buffer.from(content));
+            console.log(`Image written to: ${imagePath}`);
         } catch (error) {
             console.error(`Error writing image: ${error}`);
         }
