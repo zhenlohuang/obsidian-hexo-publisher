@@ -38,7 +38,7 @@ export class Hexo {
         normalizedMarkdown = normalizedMarkdown.replace(/\^\[([^\]]+)\]/g, '<!-- $1 -->');
 
         // 替换形如 ![alt text](filename) 的图片链接
-        normalizedMarkdown = normalizedMarkdown.replace(/!\[([^\]]+)\]\(([^)]+)\)/g, `![$1](/${imageFolder}/$2)`);
+        normalizedMarkdown = normalizedMarkdown.replace(/!\[([^\]]+)\]\(([^)]+)\)/g, `![$1](/images/$2)`);
 
         // 替换形如 ![[filename]] 的图片链接
         normalizedMarkdown = normalizedMarkdown.replace(/!\[\[([^\]]+)\]\]/g, '![$1](/images/$1)');
