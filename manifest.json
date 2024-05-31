@@ -1,11 +1,10 @@
 {
 	"id": "hexo-publisher",
 	"name": "Hexo Publisher",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"minAppVersion": "0.15.0",
-	"description": "Publish your Obsidian notes to Hexo",
+	"description": "Publish your notes to Hexo",
 	"author": "zhenlohuang",
 	"authorUrl": "https://www.yidoo.xyz",
-	"fundingUrl": "",
 	"isDesktopOnly": true
 }

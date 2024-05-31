@@ -7,12 +7,6 @@ export class ObsidianHelper {
         this.app = app;
     }
 
-    public getFileByPath(name: string): TFile | undefined {
-        let files = this.app.vault.getFiles();
-        let file = files.find(file => file.name === name);
-        return file;
-    }
-
     public getPublishedPosts(): TFile[] {
         const markdownFiles = this.app.vault.getMarkdownFiles();
         console.log(`Found ${markdownFiles.length} markdown files`);

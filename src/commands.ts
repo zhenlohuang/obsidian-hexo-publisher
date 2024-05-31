@@ -18,10 +18,10 @@ export async function publishPosts(app: App, settings: HexoPublisherPluginSettin
     const helpers = new ObsidianHelper(app);
 
     const publishedPosts = await helpers.getPublishedPosts();
-    console.log(`Found ${publishedPosts.length} published posts`);
+    console.log(`Found ${publishedPosts.length} posts need to publish.`);
 
     if (publishedPosts.length === 0) {
-        new Notice('No published posts found');
+        new Notice('No posts need to publish.');
         return;
     }
 
@@ -34,7 +34,7 @@ export async function publishPosts(app: App, settings: HexoPublisherPluginSettin
             if (images.length > 0) {
                 console.log(`Found ${images.length} images in ${mdFile.name}`);
                 for (const image of images) {
-                    const imageFile = helpers.getFileByPath(image);
+                    const imageFile = app.vault.getFileByPath(image);
                     if (imageFile?.path) {
                         const imageContent = await imageFile.vault.readBinary(imageFile);
                         await hexo.writeImage(image, imageContent);

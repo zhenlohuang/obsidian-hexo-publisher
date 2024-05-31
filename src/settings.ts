@@ -28,9 +28,8 @@ export class HexoPublisherPluginSettingTab extends PluginSettingTab {
 
         containerEl.empty();
 
-        containerEl.createEl('h1', { text: 'Hexo Publilsher - Settings' });
+        containerEl.createEl('h1', { text: 'Settings' });
 
-        containerEl.createEl('h2', { text: 'Hexo Site Settings' });
         new Setting(containerEl)
             .setName('Git Repo')
             .setDesc('git repo path for hexo site.')
