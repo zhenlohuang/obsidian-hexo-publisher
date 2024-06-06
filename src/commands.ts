@@ -34,7 +34,7 @@ export async function publishPosts(app: App, settings: HexoPublisherPluginSettin
             if (images.length > 0) {
                 console.log(`Found ${images.length} images in ${mdFile.name}`);
                 for (const image of images) {
-                    const imageFile = app.vault.getFileByPath(image);
+                    const imageFile = helpers.getFileByPath(image);
                     if (imageFile?.path) {
                         const imageContent = await imageFile.vault.readBinary(imageFile);
                         await hexo.writeImage(image, imageContent);
