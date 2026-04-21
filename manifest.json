@@ -1,10 +1,10 @@
 {
-	"id": "hexo-publisher",
+	"id": "hexo-draft-publisher",
 	"name": "Hexo Publisher",
-	"version": "0.0.5",
+	"version": "1.0.2",
 	"minAppVersion": "0.15.0",
-	"description": "Publish your notes to Hexo",
-	"author": "zhenlohuang",
-	"authorUrl": "https://www.yidoo.xyz",
+	"description": "Create Hexo drafts and publish notes with publish control",
+	"author": "lxpoet",
+	"authorUrl": "",
 	"isDesktopOnly": true
 }

@@ -8,12 +8,17 @@ export interface HexoPublisherPluginSettings {
     hexoSourceDir: string;
 }
 
+// export const DEFAULT_SETTINGS: HexoPublisherPluginSettings = {
+//     enabledLocalRepo: false,
+//     gitRepo: '',
+//     hexoSourceDir: 'source'
+// }
 export const DEFAULT_SETTINGS: HexoPublisherPluginSettings = {
     enabledLocalRepo: false,
     gitRepo: '',
-    hexoSourceDir: 'source'
+    hexoSourceDir: 'source',
+    defaultDraftDir: ''  // 默认为空，表示根目录
 }
-
 
 export class HexoPublisherPluginSettingTab extends PluginSettingTab {
     plugin: HexoPublisher;
@@ -51,5 +56,26 @@ export class HexoPublisherPluginSettingTab extends PluginSettingTab {
                     this.plugin.settings.gitRepo = value;
                     await this.plugin.saveSettings();
                 }));
+                
+        new Setting(containerEl)
+            .setName('Default Draft Directory')
+            .setDesc('Directory to save new draft posts (relative to vault root)')
+            .addText(text => text
+                .setPlaceholder('e.g. _drafts')
+                .setValue(this.plugin.settings.defaultDraftDir)
+                .onChange(async (value) => {
+                    this.plugin.settings.defaultDraftDir = value;
+                    await this.plugin.saveSettings();
+                }));
     }
 }
+
+export interface HexoPublisherPluginSettings {
+    enabledLocalRepo: boolean;
+    gitRepo: string;
+    hexoSourceDir: string;
+    defaultDraftDir: string;  // 新增配置项
+}
+
+
+

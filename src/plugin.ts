@@ -3,12 +3,16 @@ import { Plugin } from 'obsidian';
 import { DEFAULT_SETTINGS, HexoPublisherPluginSettingTab } from './settings';
 import { syncCommand, publishPosts } from './commands';
 import { HexoPublisherPluginSettings } from './settings';
+import { createNewPostCommand } from './commands';  // 添加此行
+
 
 export class HexoPublisher extends Plugin {
     settings: HexoPublisherPluginSettings;
 
     async onload() {
         await this.loadSettings();
+
+        this.addCommand(createNewPostCommand(this.app, this.settings));
 
         this.addCommand(syncCommand(this.app, this.settings));
 
