@@ -1,43 +1,50 @@
-# Hexo Publisher
+# Obsidian Hexo Publisher
 
-Forked from [zhenlohuang/obsidian-hexo-publisher](https://github.com/zhenlohuang/obsidian-hexo-publisher).  
-Thanks to the original author zhenlohuang.
+An [Obsidian](https://obsidian.md/) plugin that lets you create Hexo drafts and publish notes directly to your [Hexo](https://hexo.io/) blog.
 
-## New Features
+[中文文档](README.zh-CN.md)
 
-- **Create Hexo draft**: Use command `Create New Hexo Post`, enter title, and a markdown file with frontmatter will be auto-generated in the configured directory.
+## Features
 
-## Existing Features
-
-- Publish notes with `publish: true` in frontmatter to Hexo blog
-- Auto copy local images to Hexo `/images` directory
+- **Create Hexo Draft** — Run the `Create New Hexo Post` command, enter a title, and a Markdown file with pre-filled frontmatter (`title`, `date`, `tags`, `categories`, `publish: false`) is generated and opened automatically.
+- **Publish to Hexo** — Notes with `publish: true` in frontmatter are synced to your Hexo site's `_posts` directory via the `Publish Posts` command or the ribbon icon.
+- **Image Handling** — Obsidian-style image embeds (`![[image.png]]`) are converted to standard Markdown (`![image](/images/image.png)`) and copied to Hexo's `/images` directory.
+- **Annotation Conversion** — Obsidian footnote-style annotations (`^[comment]`) are converted to HTML comments.
 
 ## Installation
 
-1. Download `main.js` and `manifest.json` from this repo
-2. Create folder `hexo-publisher` under `.obsidian/plugins/` in your vault
-3. Place both files into that folder
-4. Enable the plugin in Obsidian settings
+1. Download `main.js` and `manifest.json` from the [latest release](https://github.com/zhenlohuang/obsidian-hexo-publisher/releases).
+2. In your vault, create the folder `.obsidian/plugins/hexo-publisher/`.
+3. Place both files into that folder.
+4. Enable **Hexo Publisher** in Obsidian Settings > Community Plugins.
 
-## Settings
+## Configuration
 
-- **Git Repo**: Absolute path to local Hexo site repo (e.g., `/Users/name/blog`)
-- **Source Dir**: Hexo source directory name (default `source`)
-- **Default Draft Directory**: Directory to save new drafts (relative to vault root, e.g., `_drafts`)
+| Setting | Description | Default |
+|---------|-------------|---------|
+| **Git Repo** | Absolute path to your local Hexo site repository | — |
+| **Source Dir** | Hexo source directory name | `source` |
+| **Default Draft Directory** | Directory for new drafts, relative to vault root | *(vault root)* |
 
 ## Usage
 
-### Create a draft
-1. Run `Create New Hexo Post` command
-2. Enter post title, press Enter
-3. File is created and opened automatically, with `publish: false` in frontmatter
+### Create a Draft
 
-### Publish an existing note
-1. Add `publish: true` to frontmatter
-2. Run `Publish Posts` command or click ribbon icon
-3. Plugin converts the note and writes to `{repo}/{sourceDir}/_posts/`
+1. Open the command palette and run **Create New Hexo Post**.
+2. Enter the post title and press Enter.
+3. A file named `YYYY-MM-DD-slug.md` is created in your draft directory and opened automatically.
 
-## Notes
+### Publish Notes
 
-- Desktop only
-- Image format `![[image.png]]` will be converted to `![image](/images/image.png)`
+1. Add `publish: true` to a note's frontmatter.
+2. Run the **Publish Posts** command or click the ribbon icon.
+3. The plugin writes converted Markdown and images to `{gitRepo}/{sourceDir}/_posts/` and `{gitRepo}/{sourceDir}/images/`.
+
+## Requirements
+
+- Desktop version of Obsidian (not supported on mobile)
+- A local Hexo site git repository
+
+## License
+
+[MIT](LICENSE)
