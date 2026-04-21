@@ -1,4 +1,4 @@
-# Hexo Publisher (Modified)
+# Hexo Publisher
 
 Forked from [zhenlohuang/obsidian-hexo-publisher](https://github.com/zhenlohuang/obsidian-hexo-publisher).  
 Thanks to the original author zhenlohuang.
